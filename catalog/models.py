@@ -33,6 +33,12 @@ class Book(models.Model):
 	language = models.ForeignKey('Language', on_delete = models.SET_NULL, null=True)
 	#Foreign Key used because book can only have one language, but many books can be written in the same language
 
+	def display_genre(self):
+		'''
+		Creates a string for the Genre. This is required to diplay genre in Admin.
+		'''
+		return ' | '.join([genre.name for genre in self.genre.all()[:3] ])
+	display_genre.short_description = 'Genre'
 
 	def __str__(self):
 		'''
@@ -111,7 +117,7 @@ class Language(models.Model):
 	def __str__(self):
 
 		'''
-		String for representing the Model object.
+		String for representing the MANAGERS = ()odel object.
 		'''
 		return self.name
 
