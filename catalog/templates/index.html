@@ -1,0 +1,24 @@
+{% extends 'base_generic.html' %}
+
+{% block title %} <title>NeW Awsome Title</title> {% endblock %}
+
+{% block content %}
+
+<h1>Local Library Website</h1> 
+
+	<p>Welcome to <em>LocalLibrary</em>, a very basic Django website developed as a tutorial example on the Mozilla Developer Network.</p>
+
+<h2>Dynamic content</h2>
+
+  <p>The library has the following record counts:</p>
+  <ul>
+  	<li><strong>Books: </strong>{{ number_books }}</li>
+  	<li><strong>Copies: </strong>{{ number_instances }}</li>
+  	<li><strong>Copies Available: </strong>{{ number_instances_available }}</li>
+  	<li><strong>Authors: </strong>{{ number_authors }}</li>
+  	<li><strong>Genres has letter 's' within: </strong>{{ number_authors }}</li>
+  </ul>
+
+  <p>You have visited this page {{ number_visits }}{% if number_visits == 1 %} time{% else %} times{% endif %}.</p>
+
+{% endblock %}
